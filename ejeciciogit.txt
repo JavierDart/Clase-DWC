@@ -1,0 +1,12 @@
+#pasos para subir archivos al git desde consola:
+
+C://> cd <url> <------------Te cambias a la ruta donde tengas la carpeta de git de subida
+D:\\CarpetadeSubidaX> git status
+D:\\CarpetadeSubidaX> git add .
+D:\\CarpetadeSubidaX> git commit -m "mensaje"
+D:\\CarpetadeSubidaX> git pull
+D:\\CarpetadeSubidaX> git push
+D:\\CarpetadeSubidaX> git status <--------------Compruevas que no queda nada por subir
+
+Te vas a gitHub y F5 a la pagina para comprovar que todo se ha subido.
+
