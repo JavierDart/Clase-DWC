@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 8</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    var precio = prompt("Introduce precio:");
+    if (precio<=0) {
+      alert("Error, introduce un precio real");
+    }
+    var porcentaje = prompt("Introduce porcentaje: ");
+    if (porcentaje<=0) {
+      alert("Error, introduce un porcentaje real");
+    }
+      function rebaja(precio, porcentaje) {
+        var pagar = precio*(porcentaje/100);
+        alert("debes pagar: "+pagar);
+      }
+
+
+    </script>
+  </body>
+</html>
