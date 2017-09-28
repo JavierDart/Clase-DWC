@@ -6,9 +6,11 @@
   </head>
   <body>
     <script type="text/javascript">
+
     var precio = prompt("Introduce precio:");
     var porcentaje = prompt("Introduce porcentaje:(sin el simbolo) ");
-    if (porcentaje<=0) {
+    var num = parseInt(precio);
+    if (porcentaje<=0 )
       alert("Error, introduce un porcentaje real");
     }
     if (precio>0) {
@@ -17,13 +19,14 @@
         alert("debes pagar: "+pagar+"€");
       }
       rebaja(precio, porcentaje);
-    }else {
-      alert("Error");
+    }
+    else if(precio<=0 || precio != typeof(parseInt)){
+      alert("Error, introduce un precio real");
     }
 
 
 
-      rebaja();
+
     </script>
   </body>
 </html>
