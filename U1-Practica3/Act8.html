@@ -8,28 +8,25 @@
     <script type="text/javascript">
 
     var precio = prompt("Introduce precio:");
-    var porcentaje = prompt("Introduce porcentaje:(sin el simbolo) ");
-    var num = parseInt(precio);
-    if (porcentaje<=0 )
-      alert("Error, introduce un porcentaje real");
-    }
-    if (precio>0) {
-      function rebaja(precio, porcentaje) {
-        var pagar = (precio*(100-porcentaje))/100;
-        alert("debes pagar: "+pagar+"€");
-      }
-      rebaja(precio, porcentaje);
-    }
-    else if(precio<=0 || precio != typeof(parseInt)){
+    var precioParsed = parseInt(precio);
+    console.log(precioParsed);
+    if(precioParsed<=0 || typeof(precioParsed) !== "number"|| isNaN(precioParsed)){
       alert("Error, introduce un precio real");
     }
+    var porcentaje = prompt("Introduce porcentaje:(sin el simbolo) ");
+    var porcentajeParsed = parseInt(porcentaje);
+    if (porcentajeParsed<=0 || typeof(porcentajeParsed) !== "number"||isNaN(porcentajeParsed)){
+      alert("Error, introduce un porcentaje real");
+    }
 
+    function rebaja(precio, porcentaje) {
+      var pagar = (precio*(100-porcentaje))/100;
+      alert("debes pagar: "+pagar+"€");
+    }
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 347a4b155362aff7e5027e0a2033b673c200bc16
+    if (precio>0) {
+      rebaja(precio, porcentaje);
+      }
     </script>
   </body>
 </html>
