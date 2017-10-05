@@ -2,9 +2,30 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Actividad 3</title>
   </head>
   <body>
+    <script type="text/javascript">
+      var edad= prompt("Dime tu edad:")|| 17;
 
+      var mayorEd = function(m){
+         var nNumero = parseInt(m);
+         if(isNaN(nNumero)){
+           console.log("Error");
+         }
+         if(nNumero>=18){
+           document.write("<h1>Bebidas disponibles para adultos:</h1>");
+           document.write("<li>Coca Cola, 3€</li>");
+           document.write("<li>Café, 5€</li>");
+           document.write("<li>Martini, 9€</li>");
+           document.write("<li>Whisky, 20€</li>");
+         }else{
+           document.write("<h1>Bebidas disponibles:</h1>");
+           document.write("<li>Coca Cola, 3€</li>");
+           document.write("<li>Café, 5€</li>");
+         }
+        }
+       mayorEd(edad);
+    </script>
   </body>
 </html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 5</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var operacion = prompt("Introduzca la operacion que quiera realizar: ");
+
+
+      var a =eval(operacion);
+        alert("La operación "+operacion+" da como resultado "+a);
+        if (isFinite(a) || typeof(a) !== "number"|| isNaN(operacion)){
+
+          console.log("ERROR!!");
+        }
+
+    </script>
+  </body>
+</html>

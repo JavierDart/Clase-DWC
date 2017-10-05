@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 4</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var c1 = "hola";
+      var c2 = "Javier";
+
+      cadenas(c1,c2);
+      function cadenas (c1,c2){
+        if (typeof(c1) !== "string" || typeof(c2) !== "string") {
+          console.log("ERROR!!");
+        }
+        if(c1.length>c2.length){
+          console.log(c1);
+        }else{
+          console.log(c2);
+        }
+      }
+
+
+      c1= "Buenos dias";
+      c2="adios";
+      cadenas(c1,c2);
+
+      c1=200;
+      c2="Eloy";
+
+      cadenas(c1,c2);
+    </script>
+  </body>
+</html>
