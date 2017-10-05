@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Kiosco</title>
+  </head>
+  <body>
+
+    <h1>¿Quieres conocer nuestro surtido?</h1>
+    <h2>Pulsa sobre la imagen</h2>
+    <script type="text/javascript">
+
+    /********a*********/
+      document.write('<img src="kiosko.png" alt="kiosko" onClick="mostrarSurtidoPrecio(a)">');
+      function generaSurtido(){
+        var ar1=["periodico","revistas","gominolas","libretas"];
+        return ar1;
+      }
+
+      // console.log(generaSurtido());
+      /**********b**********/
+      function consultaPrecios(uno){
+        var prec =[1,2,0.05,0];
+        return prec[uno];
+        }
+        // console.log(consultaPrecios(2));
+      /***************c********/
+      function mostrarSurtidoPrecio(ar1){
+        for (var i = 0; i < ar1.length; i++) {
+            if (consultaPrecios(i)>0) {
+              document.write("<table>");
+                document.write("<tr>");
+                  document.write("<td>"+'<img width="80px" src="'+ar1[i]+'.png" alt="'+ar1[i]+'">'+"</td>");
+                  document.write("<td>"+consultaPrecios(i)+" € "+"</td>");
+                document.write("</tr>");
+              document.write("</table>");
+            }
+        }
+
+      }
+
+      var a = generaSurtido();
+      // console.log(mostrarSurtidoPrecio(a));
+
+      
+    </script>
+  </body>
+</html>
