@@ -6,26 +6,20 @@
   </head>
   <body>
     <script type="text/javascript">
-      var edad= prompt("Dime tu edad:")|| 17;
+    var edad= prompt("Dime edad:")|| 18;
 
-      var mayorEd = function(m){
-         var nNumero = parseInt(m);
-         if(isNaN(nNumero)){
-           console.log("Error");
-         }
-         if(nNumero>=18){
-           document.write("<h1>Bebidas disponibles para adultos:</h1>");
-           document.write("<li>Coca Cola, 3€</li>");
-           document.write("<li>Café, 5€</li>");
-           document.write("<li>Martini, 9€</li>");
-           document.write("<li>Whisky, 20€</li>");
-         }else{
-           document.write("<h1>Bebidas disponibles:</h1>");
-           document.write("<li>Coca Cola, 3€</li>");
-           document.write("<li>Café, 5€</li>");
-         }
-        }
-       mayorEd(edad);
+    function mayorEdad(m){
+      var nNumero = parseInt(edad);
+      if (typeof(nNumero)=="number") {
+        (nNumero>=18)?document.write("<h1>Bebidas disponibles para adultos:</h1><br><li>Coca Cola, 3€</li><li>Café, 5€</li><li>Martini, 9€</li><li>Whisky, 20€</li>"):document.write("<h1>Bebidas disponibles:</h1><li>Coca Cola, 3€</li><li>Café, 5€</li>");
+      }
+      return nNumero;
+    }
+
+
+
+        var salida = mayorEdad(edad);
+
     </script>
   </body>
 </html>

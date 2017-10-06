@@ -7,19 +7,23 @@
   <body>
     <script type="text/javascript">
       var diasSemana = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"];
-    for (var i in diasSemana) {
-      console.log(diasSemana[i]);
-    }
-    var a = prompt("Introduzca el dia de la semana:")||4;
-    function num(){
+      function dias(diasSemana){
+        for (var i in diasSemana) {
+          document.write(diasSemana[i]);
+        }
+      }
+  dias();
+
+    function num(diasSemana){
+      var a = prompt("Introduzca el dia de la semana:")||4;
       if (a>=1 && a<=7) {
         document.write("El dia es "+diasSemana[a-1]);
       }
-      else if (isFinite(a) || typeof(a) !== "number") {
+      else if (!isFinite(a) || typeof(a) !== "number") {
         document.write("ERROR");
       }
     }
-    num(diasSemana);
+    num();
     </script>
   </body>
 </html>

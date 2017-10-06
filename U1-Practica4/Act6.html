@@ -8,17 +8,20 @@
     <script type="text/javascript">
       var ar1= [1, 2, 3, "hola", true, false, "a", 34.5, "b", true];
       var i;
+      document.write("<b>"+"Primer array:"+"</b>");
       for (  i= 0; i < ar1.length; i++) {
           console.log("Indice "+i+" contenido "+ ar1[i]);
           document.write("<p>" + "Indice "+i+" contenido "+ ar1[i]+" Tipo dato"+typeof(ar1[i])+ "</p>");
 
       }
-      document.write("Pasa al segundo array");
+      document.write("<b>"+"Pasa al segundo array:"+"</b>");
+      var h =0;
       var ar2 = [];
-      for (i = 0; i < ar2.length; i++) {
+      for (i = 0; i < ar1.length; i++) {
         if (!isNaN(ar1[i])){
-          ar2[i] = Number(ar1[i]);
-          document.write("Indice "+i+" contenido "+ ar2[i]+" Tipo dato"+typeof(ar2[i]));
+          ar2[h] = Number(ar1[i]);
+          document.write("<p>"+"Indice "+i+" contenido "+ ar2[i]+" Tipo dato"+typeof(ar2[i])+"</p>");
+          h++;
         }
 
       }

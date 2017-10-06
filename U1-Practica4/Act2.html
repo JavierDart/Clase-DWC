@@ -6,33 +6,20 @@
   </head>
   <body>
     <script type="text/javascript">
-    //Pedimos la edad al usuario
+    
       var edad= prompt("Dime edad:")|| 18;
 
-      var mayorEd = function(m){
-         var nNumero = parseInt(m);
-         if(isNaN(nNumero)){
-           console.log("Error");
-         }
-           (nNumero>=18)?alert("SI"):alert("NO");
+      function mayorEdad(m){
+        var nNumero = parseInt(edad);
+        if (typeof(nNumero)=="number") {
+          (nNumero>=18)?alert("SI"):alert("NO");
         }
-       mayorEd(edad);
-///-----Otra forma de hacerlo:
-      // var r=mayorEdad(edad);
-      // console.log(r);
-      // function mayorEdad(n){
-      //   var nNumero = parseInt(n);
-      //   if(isNaN(n)){
-      //     console.log("Error");
-      //   }
-      //   else {
-      //     if (n>=18){
-      //       return "si";
-      //     }else{
-      //       return "no";
-      //     }
-      //   }
-      //   }
+        return nNumero;
+      }
+
+      var salida = mayorEdad(edad);
+
+      document.write("La edad introducida es: "+salida);
 
     </script>
   </body>
