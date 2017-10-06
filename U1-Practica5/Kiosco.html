@@ -13,36 +13,41 @@
     /********a*********/
       document.write('<img src="kiosko.png" alt="kiosko" onClick="mostrarSurtidoPrecio(a)">');
       function generaSurtido(){
-        var ar1=["periodico","revistas","gominolas","libretas"];
+        var ar1=["periodico","revistas","gominolas","libretas","palomitas","posters","lapices","tabaco"];
         return ar1;
       }
 
       // console.log(generaSurtido());
       /**********b**********/
       function consultaPrecios(uno){
-        var prec =[1,2,0.05,0];
+        var prec =[1,2,0.05,0,0.30,0.65,0.02,4];
         return prec[uno];
         }
         // console.log(consultaPrecios(2));
       /***************c********/
       function mostrarSurtidoPrecio(ar1){
+        document.write("<table>");
         for (var i = 0; i < ar1.length; i++) {
-            if (consultaPrecios(i)>0) {
-              document.write("<table>");
-                document.write("<tr>");
-                  document.write("<td>"+'<img width="80px" src="'+ar1[i]+'.png" alt="'+ar1[i]+'">'+"</td>");
-                  document.write("<td>"+consultaPrecios(i)+" € "+"</td>");
-                document.write("</tr>");
-              document.write("</table>");
-            }
+          if (consultaPrecios(i)>0) {
+            document.write("<td>"+'<img width="80px" src="'+ar1[i]+'.png" alt="'+ar1[i]+'">'+"</td>");
+          }
         }
+        document.write("<tr>");
+        for (var i = 0; i < ar1.length; i++) {
+          if (consultaPrecios(i)>0) {
+            document.write("<td>"+consultaPrecios(i)+" € "+"</td>");
 
+          }
+
+        }
+          document.write("</tr>");
+        document.write("</table>");
       }
 
       var a = generaSurtido();
       // console.log(mostrarSurtidoPrecio(a));
 
-      
+
     </script>
   </body>
 </html>

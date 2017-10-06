@@ -3,6 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>Kiosco Opcional</title>
+    <style>
+      h1{
+        text-align: center;
+      }
+      h2{
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
 
@@ -26,6 +34,7 @@
         // console.log(consultaPrecios(2));
       /***************c********/
       function mostrarSurtidoPrecio(ar1){
+        document.write("<h3>Nuestro surtido:</h3>")
         for (var i = 0; i < ar1.length; i++) {
             if (consultaPrecios(i)>0) {
               document.write("<table>");
@@ -43,7 +52,7 @@
       // console.log(mostrarSurtidoPrecio(a));
 
       /*-------------Opcional:---------------*/
-      function verPrecios(){
+      function verPrecios(a){
         document.write("<p><a>Ver precios</a></p>");
       }
     </script>
