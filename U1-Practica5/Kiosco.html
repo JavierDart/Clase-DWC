@@ -11,7 +11,7 @@
     <script type="text/javascript">
 
     /********a*********/
-      document.write('<img src="kiosko.png" alt="kiosko" onClick="mostrarSurtidoPrecio(a)">');
+      document.write('<img src="kiosko.png" alt="kiosko" onClick="mostrarSurtido(a)">');
       function generaSurtido(){
         var ar1=["periodico","revistas","gominolas","libretas","palomitas","posters","lapices","tabaco"];
         return ar1;
@@ -25,27 +25,54 @@
         }
         // console.log(consultaPrecios(2));
       /***************c********/
-      function mostrarSurtidoPrecio(ar1){
+
+      // function mostrarSurtidoPrecio(ar1){
+      //   document.write("<table>");
+      //   for (var i = 0; i < ar1.length; i++) {
+      //     if (consultaPrecios(i)>0) {
+      //       document.write("<td>"+'<img width="80px" src="'+ar1[i]+'.png" alt="'+ar1[i]+'">'+"</td>");
+      //     }
+      //   }
+      //   document.write("<tr>");
+      //   for (var i = 0; i < ar1.length; i++) {
+      //     if (consultaPrecios(i)>0) {
+      //       document.write("<td>"+consultaPrecios(i)+" € "+"</td>");
+      //
+      //     }
+      //
+      //   }
+      //     document.write("</tr>");
+      //   document.write("</table>");
+      // }
+      //
+      // var a = generaSurtido();
+      // console.log(mostrarSurtidoPrecio(a));
+      //------------------------------------------------------------
+      function mostrarSurtido(ar1){
         document.write("<table>");
         for (var i = 0; i < ar1.length; i++) {
           if (consultaPrecios(i)>0) {
             document.write("<td>"+'<img width="80px" src="'+ar1[i]+'.png" alt="'+ar1[i]+'">'+"</td>");
           }
         }
-        document.write("<tr>");
-        for (var i = 0; i < ar1.length; i++) {
-          if (consultaPrecios(i)>0) {
-            document.write("<td>"+consultaPrecios(i)+" € "+"</td>");
-
-          }
-
-        }
-          document.write("</tr>");
+        document.write('<p  onClick="mostrarPrecios(a)">Mostrar precios</p>');
         document.write("</table>");
+
       }
 
-      var a = generaSurtido();
-      // console.log(mostrarSurtidoPrecio(a));
+
+
+      function mostrarPrecios(ar1){
+        document.write("<table>");
+        for (var i = 0; i < ar1.length; i++) {
+          if (consultaPrecios(i)>0) {
+            document.write('<td width="80px">'+ consultaPrecios(i) +" € "+"</td>");
+          }
+        }
+          document.write("<table>");
+      }
+
+        var a = generaSurtido();
 
 
     </script>
