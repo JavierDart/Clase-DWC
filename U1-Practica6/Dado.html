@@ -18,16 +18,13 @@
           var ar1=["1","2","3","4","5","6"];
           return ar1;
       }
-      function muestraDado(){
-        for (var i = 0; i < ar1.length; i++) {
-            document.write('<img width="80px" src="'+ar1[i]+'.png" alt="'+ar1[i]+'">');
-        }
-      }
-      function numAleatorio(ar1){
 
-        return Math.random(ar1) * 7;
-      }
-      alert(numAleatorio(ar1));
+    function lanzar()
+    {
+        var d =Math.round(Math.random()*5);
+        document.images["mydice"].src=eval("face"+randomdice+".src");
+        document.write('<img width="80px" src="'+ar1[i]+'.png" alt="'+ar1[i]+'">');
+    }
     </script>
   </body>
 </html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Fabrica de funciones</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      var p = prompt("introduce tu edad actual:");
+      var x=parseInt(p);
+      var j = prompt("introduce un año superior al actual:");
+      var y=parseInt(j);
+
+      var d=new Date();
+      var n =d.getFullYear();
+      if (typeof(x)=="number" && typeof(y)=="number"&& y>n && x>0 && x<100) {
+        var q=(y-n)+x;
+        var b=0;
+        function a(){
+          b = function(q){
+
+            return "¡En el año "+ y + " tendras "+q+" años!";
+          };
+          return b;
+        }
+
+        var res = a();
+        document.write(res(q));
+      }else {
+        alert("ERROR INTRODUCE CORRECTAMENTE LOS DATOS!!")
+      }
+
+
+
+
+    </script>
+  </body>
+</html>
