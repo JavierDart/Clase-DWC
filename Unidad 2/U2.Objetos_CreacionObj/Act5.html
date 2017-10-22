@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 5</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    var persona = new Object();
+      persona.nom;
+      persona.apell;
+      persona.apell2;
+      persona.tel;
+      persona.edad;
+    /*Creamos el constructor Persona y le "pasamos" los atributos que va ha tener */
+    function Persona(nom,apell,apell2,tel,edad){
+        /*iniciamos cada atributo*/
+        this.nom=nom ||"Anonymous";
+        this.apell=apell||"Anonymous";
+        this.apell2=apell2||"Anonymous";
+        this.tel=tel;
+        this.edad=edad;
+        /*Creamos la funcion saludar---metodo*/
+        this.saludar = function(){
+          /*Si el telefono es nulo le atibuye como valor un espacio*/
+          if (this.tel==null) {
+            this.tel=" ";
+          }
+          /*Hacemos que el atributo edad sea un numero random del 1 al 100*/
+          this.edad=Math.floor(Math.random() * (100 - 1)) + 1;
+          /*Mostramos todo por pantalla*/
+          document.write("<p> Hola me llamo "+this.nom+" "+this.apell+" "+this.apell2+", Telefono: "+this.tel+", Edad: "+this.edad+"</p>");
+        }
+        /*Creamos la funcion cumplirAños*/
+        this.cumplirAnyo =function(){
+          this.edad=this.edad+1;
+          document.write("<p> Hola me llamo "+this.nom+" "+this.apell+" "+this.apell2+", Telefono: "+this.tel+", Edad: "+this.edad+"</p>");
+        }
+    }
+    /*Creamos los objetos a pratir del constructor persona y le introducimos valor a los atributos*/
+    var persona1 = new Persona("Javi","Dart","Belenguer","");
+    var persona2 = new Persona( "","Martinez","","");
+    var persona3 = new Persona("Celia" ,"","Gonzalez","628512140","");
+    /*mostramos los objetos con la funcion saludar*/
+    document.write("<p>"+persona1.saludar()+"</p>");
+    document.write("<p>"+persona2.saludar()+"</p>");
+    document.write("<p>"+persona3.saludar()+"</p>");
+    /*Mostramos un objeto con la funcion cumpleAños*/
+    document.write("<p>"+persona2.cumplirAnyo()+"</p>");
+    </script>
+  </body>
+</html>

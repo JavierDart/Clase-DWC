@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 9</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function Persona(nom,apell,tel,edad){
+    this.nom=nom ||"Anonymous";
+    this.apell=apell||"Anonymous";
+    var apellidos = this.apell.split(" ");
+    this.apell = apellidos;
+    this.tel=tel;
+    this.edad=edad;
+  }
+
+    function Estudiante(nom,apell,tel,edad,estudios,nM){
+      Persona.call(this,nom,apell,tel,edad);
+      this.estudios=estudios;
+      this.nM= prompt("Introduce nota media de la asignatura: ");
+      var nM = parseFloat(this.nM);
+      this.nM= nM.toFixed(2);
+
+
+
+
+      this.Recuperar = function(){
+        if(this.nM<5) {
+            this.nM=5;
+        }
+      }
+
+    }
+
+
+  var lista=new Array(3);
+  lista[0]= new Estudiante("Javi","Dart Belenguer","628152140","21","DAW","");
+  lista[1]= new Estudiante("Celia","Morena Martinez","621652140","22","DAW","");
+  lista[2]= new Estudiante("Manu","Martinez Gonzalez","621525490","40","DAW","");
+  lista[0].Recuperar();
+  lista[1].Recuperar();
+  lista[2].Recuperar();
+  for (var i = 0; i < lista.length; i++) {
+    console.log("Nombre: "+lista[i].nom+"; Primer apellido : "+lista[i].apell[0]+"; Segundo apellido: "+lista[i].apell[1]);
+
+  }
+
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 8</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    var frase="Esto es un string";
+    document.write("<p>La longitud del string es:"+frase.length+"</p>");
+    document.write("<p> El carácter que ocupa la posición 7 es:"+frase.charAt(6)+"</p>");
+    document.write("<p> El índice en el que está la última t es:"+frase.lastIndexOf("t")+"</p>");
+    document.write("<p> La transformación a minúsculas del string es:"+frase.toLowerCase()+"</p>");
+    document.write("<p> La transformación de mayúsculas del string es:"+frase.toUpperCase()+"</p>");
+    document.write("<p> Las palabras separadas por comas que componen la frase son:"+frase.split(" ")+"</p>");
+    document.write("<p> Las posiciones de la 11 a la 18 de frase son:"+frase.slice(11,18)+"</p>");
+
+    var frase1="      y esto es un string mas largo ";
+    var r=frase.concat(frase1);
+    document.write(r.trim());
+
+    var w = r.replace("largo","bonito");
+    document.write("<br>"+w);
+
+    var ex ="¡";
+    document.write("<br>"+w+ex.repeat(20));
+
+
+    </script>
+  </body>
+</html>

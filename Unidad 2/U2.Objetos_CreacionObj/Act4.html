@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 4</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+
+      function Persona(nom,apell){
+          this.nom=nom ||"Anonymous";
+          this.apell=apell||"Anonymous";
+          this.saludar = function(){
+            document.write("<p> Hola me llamo "+this.nom+" "+this.apell+"</p>");
+          }
+      }
+
+      var persona1 = new Persona("Javi","Dart");
+      var persona2 = new Persona( "","Martinez");
+      var persona3 = new Persona("Celia" );
+
+
+      console.log(persona1 instanceof Persona);
+      console.log(persona2 instanceof Persona);
+      console.log(persona3 instanceof Persona);
+
+      document.write("<p>"+persona1.saludar()+"</p>");
+      document.write("<p>"+persona2.saludar()+"</p>");
+      document.write("<p>"+persona3.saludar()+"</p>");
+
+    </script>
+  </body>
+</html>

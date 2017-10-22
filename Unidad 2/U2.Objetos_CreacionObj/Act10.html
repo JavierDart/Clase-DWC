@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 10</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+    function Persona(nom,apell,tel,edad){
+    this.nom=nom ||"Anonymous";
+    this.apell=apell||"Anonymous";
+    this.tel=tel;
+    this.edad=edad;
+
+  }
+
+    function Estudiante(nom,apell,tel,edad,estudios,nM,pass){
+      Persona.call(this,nom,apell,tel,edad);
+      this.estudios=estudios;
+      this.nM= prompt("Introduce nota media de la asignatura: ");
+      var nM = parseFloat(this.nM);
+      this.nM= nM.toFixed(2);
+
+
+
+
+
+      this.Recuperar = function(){
+        if(this.nM<5) {
+            this.nM=5;
+        }
+      }
+
+
+    }
+    Estudiante.prototype.pass = "";
+    Estudiante.prototype.crearPassword = function(){
+         var mayus=this.nom.toUpperCase();
+         var  firstLetter= mayus.charAt(0);
+
+        var minusAp= this.apell.toLowerCase();
+        var firstApell = minusAp.split(" ");//genera el array firstApell[2]
+        console.log(firstApell);
+        var replaceApellE= firstApell[0].replace("e","3");
+        var replaceApellA= replaceApellE.replace("a","4");
+        var numNomLetter =this.nom.length;
+
+        this.pass=firstLetter+replaceApellA+numNomLetter;
+
+        console.log(this.pass);
+
+
+    }
+
+  var lista=new Array(3);
+  lista[0]= new Estudiante("Javi","Dart Belenguer","628152140","21","DAW","");
+  lista[1]= new Estudiante("Celia","Morena Martinez","621652140","22","DAW","");
+  lista[2]= new Estudiante("Manu","Martinez Gonzalez","621525490","40","DAW","");
+  lista[0].Recuperar();
+  lista[1].Recuperar();
+  lista[2].Recuperar();
+
+  for (var i = 0; i < lista.length; i++) {
+    var a1 = lista[i].apell.split(" ");
+    console.log(a1[0]);
+    console.log(a1[1]);
+    console.log("Nombre: "+lista[i].nom+"; Primer apellido : "+lista[i].a1[0]+"; Segundo apellido: "+lista[i].a1[1]);
+    console.log(lista[i].pass);
+  }
+
+
+    </script>
+  </body>
+</html>

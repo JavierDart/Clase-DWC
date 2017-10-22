@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 2</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      var coche = new Object();
+      coche.Marca ="Ferrari";
+      coche.ruedas="4";
+      coche.plazas="2";
+      coche.color="red";
+
+      coche.pintar= function(){
+        coche.color="white";
+      }
+      var coche2 = new coche();
+      coche2.Marca ="Fiat";
+      coche2.ruedas="4";
+      coche2.plazas="4";
+      coche2.color="blue";
+
+      coche2.pintar= function(){
+        coche2.color="white";
+      }
+      delete coche.plazas;
+
+      console.log(Object.keys(coche));
+      console.log(Object.keys(coche2));
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 6</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // var persona = new Object();
+      //   persona.nom;
+      //   persona.apell;
+      //   persona.tel;
+      //   persona.edad;
+      //   persona.estudios;
+      //   persona.nM;
+
+        function Persona(nom,apell,apell2,tel,edad){
+        this.nom=nom ||"Anonymous";
+        this.apell=apell||"Anonymous";
+        this.apell2=apell2||"Anonymous";
+        this.tel=tel;
+        this.edad=edad;
+      }
+
+        function Estudiante(nom,apell,apell2,tel,edad,estudios,nM){
+          Persona.call(this,nom,apell,apell2,tel,edad);
+          this.estudios=estudios;
+          this.nM= prompt("Introduce nota media de la asignatura: ");
+          var nM = parseFloat(this.nM);
+          this.nM= nM.toFixed(2);
+
+
+
+
+          this.Recuperar = function(){
+            if(this.nM<5) {
+                this.nM=5;
+            }
+          }
+
+        }
+
+
+      var lista=new Array(3);
+      lista[0]= new Estudiante("Javi","Dart","Belenguer","628152140","21","DAW","");
+      lista[1]= new Estudiante("Celia","De la morena","","621652140","22","DAW","");
+      lista[2]= new Estudiante("Manu","Martinez","","621525490","40","DAW","");
+      lista[0].Recuperar();
+      lista[1].Recuperar();
+      lista[2].Recuperar();
+      for (var i = 0; i < lista.length; i++) {
+        console.log("El estudiante de "+lista[i].estudios+", "+lista[i].nom+" "+lista[i].apell+" "+lista[i].apell2+" tiene una nota media de "+lista[i].nM);
+      }
+
+
+    </script>
+  </body>
+</html>

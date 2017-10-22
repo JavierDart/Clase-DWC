@@ -22,8 +22,13 @@
     function lanzar()
     {
         var d =Math.round(Math.random()*5);
-        document.images["mydice"].src=eval("face"+randomdice+".src");
-        document.write('<img width="80px" src="'+ar1[i]+'.png" alt="'+ar1[i]+'">');
+        for (var i = 0; i < ar1.length; i++) {
+          document.write('<img width="80px" src="'+ar1[i]+'.png" alt="'+ar1[i]+'">');
+        }
+
+    }
+    function verDado(){
+
     }
     </script>
   </body>
