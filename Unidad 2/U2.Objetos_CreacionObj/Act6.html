@@ -6,7 +6,7 @@
   </head>
   <body>
     <script type="text/javascript">
-    /*Creamos el objeto Presona*/
+
         function Persona(nom,apell,apell2,tel,edad){
         this.nom=nom ||"Anonymous";
         this.apell=apell||"Anonymous";
@@ -14,7 +14,7 @@
         this.tel=tel;
         this.edad=edad;
       }
-/*Creamos el objeto Estudiante y le pasamos los atributos de Persona*/
+/*Creamos el constructor Estudiante y le pasamos los atributos de Persona*/
         function Estudiante(nom,apell,apell2,tel,edad,estudios,nM){
           Persona.call(this,nom,apell,apell2,tel,edad);
           this.estudios=estudios;

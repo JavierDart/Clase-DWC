@@ -6,21 +6,29 @@
   </head>
   <body>
     <script type="text/javascript">
-    var d = new Date();
-    var n = d.getDate();
-    console.log("Dias del 1 al 31: "+n);
-
-    console.log("Muestra por consola el mes (del 1 al 12): ");
-
-    console.log("Muestra por consola el año: ");
-
-    console.log("Muestra el día de la semana (Lunes, Martes, …): ");
-
-    console.log("Muestra la fecha completa con formato dd/mm/aaaa: ");
-
-    console.log("Muestra las horas (de 0 a 23): ");
-
-    console.log("Muestra la fecha completa con formato dd/mm/aaaa HH:MM:SS: ");
+    var Fecha = new Date();
+    var b = Fecha.getDate();
+    console.log("Dias del 1 al 31: "+b);
+    var c = Fecha.getMonth()+1;
+    console.log("Muestra por consola el mes (del 1 al 12): "+c);
+    var d = Fecha.getFullYear();
+    console.log("Muestra por consola el año: "+d);
+    var dia = new Array(7);
+    dia[0] =  "Domingo";
+    dia[1] =  "Lunes";
+    dia[2] =  "Martes";
+    dia[3] =  "Miercoles";
+    dia[4] =  "Jueves";
+    dia[5] =  "Viernes";
+    dia[6] =  "Sabado";
+    var e = dia[Fecha.getDay()];
+    console.log("Muestra el día de la semana (Lunes, Martes, …): "+e);
+    var f = Fecha.toLocaleDateString();
+    console.log("Muestra la fecha completa con formato dd/mm/aaaa: "+f);
+    var g = Fecha.getHours();
+    console.log("Muestra las horas (de 0 a 23): "+g);
+    var h = Fecha.toLocaleTimeString();
+    console.log("Muestra la fecha completa con formato dd/mm/aaaa HH:MM:SS: "+h);
     </script>
   </body>
 </html>
