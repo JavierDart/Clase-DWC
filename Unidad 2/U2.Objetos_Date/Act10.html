@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 10</title>
+  </head>
+  <body>
+    <button onclick="setTimeout(tiempo, 5000)">Activar</button>
+    <button onclick="clearTimeout(tiempo)">Parar</button>
+
+    <script type="text/javascript">
+
+    function tiempo() {
+      var d = new Date();
+      console.log(d.toLocaleTimeString());
+    }
+
+
+
+    </script>
+  </body>
+</html>

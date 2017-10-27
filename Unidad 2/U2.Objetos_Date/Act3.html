@@ -6,8 +6,39 @@
   </head>
   <body>
     <script type="text/javascript">
-      var ar1 = [1,2,3,4];
-      var p=
+    /*Crea un array con 4 elementos*/
+      var ar1 = new Array(4);
+      ar1[0]=0;
+      ar1[1]=1;
+      ar1[2]=2;
+      ar1[3]=3;
+  /*Concatena 2 elementos más al final y 2 al principio*/
+      ar1.push(4,5);
+      ar1.unshift(-2,-1);
+  /*Muestra por consola el resultado después de aplicar cada uno utilizando toString()*/
+      console.log(ar1.toString());
+  /*Elimina las posiciones de la 3 a la 5 (incluidas)*/
+
+        console.log(ar1.splice(3,2));
+  /*Inserta el número 10 y el 25 entre el penúltimo y el último*/
+      //añade en 7 elimina 0 añade 10 y 25
+      console.log(ar1.splice(5,0,10,25));
+  /*Muestra el array del paso anterior, pero con los elementos separados por "==>" utilizando join().*/
+
+      console.log(ar1.join("==>"));
+  /*Copia el array anterior en otra variable e invierte el orden de los elementos con esa segunda variable.*/
+      var ar2= ar1.reverse();
+      console.log("Array invertido: "+ar2);
+
+
+  /*Muestra los dos arrays (directamente, sin join() ni toString()). ¿Puedes explicar qué ha pasado con los dos arrays y por qué?*/
+        console.log("Array 2: "+ar2);
+        console.log("Array : "+ar1);
+        console.log("Se han modificado al hacer el reverse y luego igualarlos");
+  /*Consulta en qué índice del array está el 25 y en qué índice está un elemento que no esté en el array.*/
+    console.log(ar1.indexOf(25));
+      console.log(ar1.indexOf(10));
+
 
     </script>
 

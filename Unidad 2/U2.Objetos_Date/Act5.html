@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 5</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+            function Persona(nom,apell,apell2,tel,edad){
+            this.nom=nom ||"Anonymous";
+            this.apell=apell||"Anonymous";
+            this.apell2=apell2||"Anonymous";
+            this.tel=tel;
+            this.edad=edad;
+          }
+    /*Creamos el constructor Estudiante y le pasamos los atributos de Persona*/
+            function Estudiante(nom,apell,apell2,tel,edad,estudios,nM){
+              Persona.call(this,nom,apell,apell2,tel,edad);
+              this.estudios=estudios;
+              this.nM= prompt("Introduce nota media de la asignatura: ");
+              var nM = parseFloat(this.nM);
+              this.nM= nM.toFixed(2);
+
+
+
+
+    /*creamos el metodo Recuperar*/
+              this.Recuperar = function(){
+                if(this.nM<5) {
+                    this.nM=5;
+                }
+              }
+
+              this.toString = function(){
+                return this.nom+" "+this.apell+" "+this.apell2+" "+this.tel+" "+this.edad+" "+this.estudios+" "+this.nM+"   ;";
+
+              }
+
+            }
+
+    /*Creamos el array lista(3)*/
+          var lista=new Array(3);
+          lista[0]= new Estudiante("Javi","Dart","Belenguer","628152140","21","DAW","");
+          lista[1]= new Estudiante("Celia","De la morena","","621652140","22","DAW","");
+          lista[2]= new Estudiante("Manu","Martinez","","621525490","40","DAW","");
+          lista[0].Recuperar();
+          lista[1].Recuperar();
+          lista[2].Recuperar();
+          /*-----------Ejercicio 5---------*/
+          lista.sort(function(p1,p2){
+            return p1.nM-p2.nM;
+          });
+          console.log(lista.toString());
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 4</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    /*Crea un array con 4 elementos*/
+      var ar1 = new Array(4);
+      ar1[0]=0;
+      ar1[1]=1;
+      ar1[2]=2;
+      ar1[3]=3;
+      ar1.push(4,5);
+      ar1.unshift(-2,-1);
+      console.log(ar1.toString());
+
+        console.log(ar1.splice(3,2));
+      console.log(ar1.splice(5,0,10,25));
+
+      console.log(ar1.join("==>"));
+    var ar2= ar1.reverse();
+      console.log("Array invertido: "+ar2);
+
+
+          console.log("Array 2: "+ar2);
+        console.log("Array : "+ar1);
+        console.log("Se han modificado al hacer el reverse y luego igualarlos");
+
+    console.log(ar1.indexOf(25));
+      console.log(ar1.indexOf(10));
+console.log("------------Actividad 4-----------------------");
+/*-------------Actividad 4-----------------------*/
+    console.log(ar1.every(function(num){return isNaN(num)!== true;}));
+    console.log(ar1.some(function(num){return num<20;}));
+    var c = [4,21,33,12,9,54];
+    function sumarArray(total,num){
+      return total+num;
+    }
+
+    console.log(c.reduce(sumarArray));
+    </script>
+  </body>
+</html>

@@ -7,13 +7,26 @@
   <body>
     <script type="text/javascript">
       var us= prompt("Introduzca la  fecha de las próximas vacaciones en formato año/mes/dia o año-mes-dia: ");
-      if (us=="?/?/?"||"?-?-?") {
-        var d = new Date();
-        var m=  d.getTime();
+
+        var fecha = new Date(us);
+        var actual = new Date();
+        var m=  fecha.getFullYear();
+        //console.log(m);
+        var n= actual.getFullYear();
+        //console.log(n);
+        var r= m-n;
+        var r=r*31556900000;
+        console.log("Cantidad de milisegundos que quedan: "+r);
+
+        fecha = new Date(us);
+        actual = new Date();
+        var a=  fecha.getDate();
         console.log(m);
-      }else {
-        alert("Error en la introduccion de fecha");
-      }
+        var b= actual.getDate();
+        console.log(n);
+        var r= -n;
+
+
 
     </script>
   </body>
