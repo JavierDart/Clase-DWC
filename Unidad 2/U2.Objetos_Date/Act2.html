@@ -6,27 +6,16 @@
   </head>
   <body>
     <script type="text/javascript">
-      var us= prompt("Introduzca la  fecha de las próximas vacaciones en formato año/mes/dia o año-mes-dia: ");
 
-        var fecha = new Date(us);
-        var actual = new Date();
-        var m=  fecha.getFullYear();
-        //console.log(m);
-        var n= actual.getFullYear();
-        //console.log(n);
-        var r= m-n;
-        var r=r*31556900000;
-        console.log("Cantidad de milisegundos que quedan: "+r);
+    var vac = prompt ("Introduce la fecha de las vaciones \naaaa/mm/dd");
+       var fecha = new Date(vac);
+       console.log(vac);
+       console.log(fecha.getFullYear());
 
-        fecha = new Date(us);
-        actual = new Date();
-        var a=  fecha.getDate();
-        console.log(m);
-        var b= actual.getDate();
-        console.log(n);
-        var r= -n;
-
-
+       var hoy = new Date();
+       console.log(" Esta es la fecha de hoy: " +hoy);
+       console.log("Esto son los Milisegundos: " + (fecha.getFullYear() - actual.getFullYear()) * 31556900000);
+       console.log(" Estos son los dias que quedan hasta la fecha: " + Math.floor((fecha-hoy) / (60*60*24*1000)));
 
     </script>
   </body>
