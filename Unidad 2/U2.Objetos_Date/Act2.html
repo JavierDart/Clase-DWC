@@ -14,7 +14,7 @@
 
        var hoy = new Date();
        console.log(" Esta es la fecha de hoy: " +hoy);
-       console.log("Esto son los Milisegundos: " + (fecha.getFullYear() - actual.getFullYear()) * 31556900000);
+       console.log("Esto son los Milisegundos: " + (fecha.getFullYear() - hoy.getFullYear()) * 31556900000);
        console.log(" Estos son los dias que quedan hasta la fecha: " + Math.floor((fecha-hoy) / (60*60*24*1000)));
 
     </script>
