@@ -1,4 +1,5 @@
 var u = new Usuario(productos);
+u.calcularImporte();
 u.mostrarCompra();
 
 
@@ -36,6 +37,7 @@ function eliminar(){
   }else {
     u.compra.pop();
   }
+  u.calcularImporte();
   u.mostrarCompra();
 }
 

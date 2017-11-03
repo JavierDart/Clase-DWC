@@ -12,25 +12,17 @@ function Usuario(compra){
     }else {
       this.compra.pop();
     }
+    u.calcularImporte();
     u.mostrarCompra();
   }
 
 
   this.calcularImporte=function() {
-    // var total=0;
-    // for (var i = 0; i < compra.length; i++) {
-    //   total+=this.compra[i].precio;
-    // }
-    // this.importe=total;
-    // this.importe = this.compra.reduce(function (total, num){
-    //   return total+num;
-    //  }
-    for (var i = 0; i < this.compra.length; i++) {
-      var t = this.compra[i].precio;
-      this.importe =t;
-    }
-    return this.importe;
-  }
+
+    this.importe = this.compra.reduce(function (total, num){
+      return total+num.precio;
+    },0);
+   }
 
 
   this.mostrarCompra = function(comp){
@@ -46,7 +38,7 @@ function Usuario(compra){
         str += "<p><b> El producto: "+ this.compra[i].precio+"</b></p>";
       str += "</div>";
       }
-      str += "<p>El importe total: "+this.calcularImporte()+"</p>"
+      str += "<p>El importe total: "+this.importe+"</p>"
     }else {
     for (var i = 0; i <comp.length; i++) {
       str += "<div>";
