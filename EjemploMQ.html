@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Ejemplo MQ</title>
+    <style media="screen">
+    *{
+      padding: 0px;
+      margin: 0px;
+      box-sizing: border-box;
+    }
+    .cabecera{
+      height: 80px;
+      background-color: yellow;
+      border: 1px solid black;
+      float: left;
+      width: 100%;
+    }
+    .cuerpo{
+      height: 200px;
+      background-color: grey;
+      border: 1px solid black;
+      float: left;
+      width: 100%;
+    }
+    .foto{
+      height: 80px;
+      background-color: orange;
+      border: 1px solid black;
+      float: left;
+      width: 25%;
+    }
+    .pie{
+      height: 40px;
+      background-color: lime;
+      border: 1px solid black;
+      width: 100%;
+      float: left;
+    }
+      @media (min-width:992px)and(max-width:1200px){
+          .foto{
+            width: 50%;
+            background-color: lime;
+          }
+      }
+      @media (max-width:991px){
+        .cuerpo{
+          width: 50%;
+        }
+        .foto{
+          width: 100%;
+        }
+      }
+    </style>
+    <style media="print">//*Style para impresora*/
+      .cuerpo{
+        display: none;
+      }
+      .foto{
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="cabecera"></div>
+      </div>
+
+      <div class="row">
+          <div class="cuerpo"></div>
+          <div class="cuerpo"></div>
+          <div class="foto"></div>
+          <div class="foto"></div>
+          <div class="foto"></div>
+          <div class="foto"></div>
+        </div>
+        <div class="row">
+          <div class="pie"></div>
+        </div>
+    </div>
+  </body>
+</html>

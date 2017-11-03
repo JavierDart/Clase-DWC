@@ -40,5 +40,20 @@ var productos = [
     foto:'https://media2.ocu.org//images/CE9E19F522012DD79E635A40B861F4F8C3DAB876/w150-c4/hf31300041604001.jpg',
     precio: 5.30,
     vegano: true
+  },
+  {
+    nombre:'Dentrifico',
+    descripcion: 'Dentrifico colgate Total original. Paquete 75g',
+    foto:'http://www.colgateprofesional.es/Professional/v1/es/es/locale-assets/img/heros/Products-Slider-Toothpaste.jpg',
+    precio: 7.56,
+    vegano: false
+  },
+  {
+    nombre:'Coca Cola',
+    descripcion: 'Coca Cola original cristal. Botella 500cl',
+    foto:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flasche_Coca-Cola_0%2C2_Liter.jpg/220px-Flasche_Coca-Cola_0%2C2_Liter.jpg',
+    precio: 1.00,
+    vegano: false
   }
+
 ];
