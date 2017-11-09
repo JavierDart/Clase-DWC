@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 3</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      onload = function(){
+
+
+        for (var i = 0; i < document.getElementsByTagName('p').length; i++) {
+          document.getElementsByTagName('p')[i].innerHTML=("Este parrafo es el numero "+(i+1));
+         }
+
+         recorreTag = function(){
+
+           for (var i = 0; i < document.getElementsByTagName('p').length; i++) {
+             document.getElementsByTagName('p')[i].style.color= cambiame.children[0].value;
+           }
+         }
+      }
+    </script>
+    <div id="contiene_ps">
+      <p>?</p>
+      <p>?</p>
+      <p>?</p>
+      <p>?</p>
+      <p>?</p>
+      <p>?</p>
+      <div id="cambiame">
+        <input type="color" id="txtColor" value="#FF0000">
+        <button id="actualizar" onclick="recorreTag();">Modificar los párrafos!</button>
+      </div>
+    </div>
+  </body>
+</html>

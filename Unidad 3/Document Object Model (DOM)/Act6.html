@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Crea elementos del DOM</title>
+    <script type="text/javascript">
+      onload = function creaDOM(){
+        var content = document.body;
+        var tituloh1 = document.createElement("h1");
+        tituloh1.innerHTML = "Esto es un h1";
+        tituloh1.style.color = "blue";
+        tituloh1.style.fontFamily ="Arial";
+        content.appendChild(tituloh1);
+        var imagen = document.createElement("img");
+        imagen.setAttribute("src","http://www.alfabetajuega.com/abj_public_files/multimedia/imagenes/201701/177909.alfabetajuega-rick-y-morty-200117.jpg");
+        imagen.style.width = "50px";
+        imagen.style.height = "50px";
+        content.appendChild(imagen);
+      }
+    </script>
+  </head>
+  <body>
+
+
+  </body>
+</html>

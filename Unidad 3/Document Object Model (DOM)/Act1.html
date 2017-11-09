@@ -5,7 +5,19 @@
     <title>Ej Hoja mundo hecho con nodos DOM</title>
   </head>
   <script type="text/javascript">
+  onload = function(){
+      document.body.children[0].innerHTML="Nuevo contenido de h1";
+      document.body.children[1].innerHTML="Nuevo contenido de p";
+      document.body.children[2].innerHTML="Nuevo contenido de div";
+      document.body.children[0].style.color="blue";
+      document.body.children[1].style.color="blue";
+      document.body.children[2].style.color="blue";
 
+      for (var i = 0; i < 3; i++) {
+        console.log(document.body.children[i].innerHTML);
+      }
+
+    }
   </script>
   <body>
     <h1> Esto es un título</h1>
