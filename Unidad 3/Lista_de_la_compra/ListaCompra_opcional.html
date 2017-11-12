@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      onload = function(){
+        //
+        // var carne= document.createElement('div');
+        // carne.setAttribute("value","compra.style.color[0]");
+        //
+        // content.appendChild(carne);
+
+        añadirElemento=function (){
+          var content = document.body;
+          if (document.getElementsByName('selector')[0].value==0||document.getElementsByName('texto')[0].value=='undefined') {
+            alert("No has elegido categoria, elige una para continuar!")
+          }
+          else{
+
+            var apartados = document.createElement("div");
+            apartados.setAttribute("value","style.color");
+            apartados.setAttribute("onclick","borrarElemento()");
+            content.appendChild(apartados);
+            apartados.innerHTML = compra;
+
+            var compra = document.createElement("p");
+            // compra.setAttribute("value","style.color");
+            compra.setAttribute("onclick","borrarElemento()");
+            content.appendChild(compra);
+
+            var texto = document.getElementsByName('texto')[0].value;
+            compra.innerHTML = texto;
+
+            if (document.getElementsByName('selector')[0].value=="red") {
+              compra.style.color="red";
+              compra.style.border="2px solid";
+            }
+            if (document.getElementsByName('selector')[0].value=="navy") {
+              compra.style.color="navy";
+              compra.style.border="2px solid";
+            }
+            if (document.getElementsByName('selector')[0].value=="cyan") {
+              compra.style.color="cyan";
+              compra.style.border="2px solid";
+            }
+            if (document.getElementsByName('selector')[0].value=="gold") {
+              compra.style.color="gold";
+              compra.style.border="2px solid";
+            }
+            if (document.getElementsByName('selector')[0].value=="magenta") {
+              compra.style.color="magenta";
+              compra.style.border="2px solid";
+            }
+             borrarElemento= function(){
+              var eliminarP = document.querySelector("p:hover");
+              eliminarP.parentNode.removeChild(eliminarP);
+            }
+          }
+
+
+
+
+          }
+
+
+           borrarLista = function(){
+                var miP= document.getElementsByTagName("p").length;
+                for (var i = 0; i < miP; i++) {
+                  var m = document.getElementsByTagName("p")[0];
+                  document.body.removeChild(m);
+                }
+
+          }
+        }
+
+
+    </script>
+    <h1>Lista de la compra</h1>
+    <input type="text" name="texto" ></input>
+    <select  name="selector" id="selector">
+      <option value=0>Escoge una opcion</option>
+      <option value="red">Carniceria</option>
+      <option value="navy">Pescaderia</option>
+      <option value="cyan">Congelados</option>
+      <option value="gold">Panaderia</option>
+      <option value="magenta">Perfumeria</option>
+    </select>
+    <button onclick="añadirElemento()">Añadir elemento</button>
+    <button onclick="borrarLista()">Borrar lista</button>
+    <hr>
+  </body>
+</html>
