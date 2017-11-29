@@ -1,0 +1,40 @@
+<script type="text/javascript">
+
+    addEventListener("DOMContentLoaded", function(){
+    onkeypress = function(e){
+      if(e.key=="+"){
+        if(imagen.width<1000){
+          imagen.width +=25;
+        }else if(imagen.width==1000){
+          imagen.width+=24;
+        }
+      }
+      if(e.key=="-"){
+        if(imagen.width==1024){
+          imagen.width -=24;
+        }else if(imagen.width>150){
+          imagen.width -=25;
+        }
+      }
+    }
+    });
+    </script>
+
+    ---------------------------
+    <script type="text/javascript">
+     window.onresize = function(){
+       console.log("Anchura: " + window.outerWidth + " Altura: " + window.outerHeight);
+       miP.innerHTML = "Anchura: " + window.outerWidth + " Altura: " + window.outerHeight;
+     }
+   </script>
+
+   -----------------
+   <script type="text/javascript">
+    onload =  function(){
+    selector.addEventListener("change",cambiar);
+      function cambiar() {
+        var nuevaFoto = selector.value;
+        imagen.src = "foto" + selector.value + ".jpg"
+      }
+    }
+    </script>

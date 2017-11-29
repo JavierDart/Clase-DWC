@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 6</title>
+  </head>
+  <script type="text/javascript">
+    /*Crea una web que cuando el usuario pulse la tecla Shift,
+    cambie el texto a mayúsculas y cuando vuelva a pulsar pase a minúsculas.*/
+    var h = 0;
+    document.addEventListener('keydown',function(){
+      if(event.shiftKey){
+      if(h%2==0){
+       var a= document.querySelector("p");
+       var c= a.innerHTML.toUpperCase(a);
+       document.body.children[0].innerHTML= c;
+         h++;
+       }
+       else {
+         var b= document.querySelector("p");
+         b.innerHTML.toLowerCase(b);
+         var d= b.innerHTML.toLowerCase(b);
+         document.body.children[0].innerHTML= d;
+         h++;
+       }
+       }
+    },true);
+
+
+
+
+  </script>
+  <body>
+    <p>esto es un texto</p>
+  </body>
+</html>

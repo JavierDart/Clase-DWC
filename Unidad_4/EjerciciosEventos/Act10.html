@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 10</title>
+  </head>
+  <style media="screen">
+    *{text-align: center;}
+  </style>
+  <script type="text/javascript">
+    /* Realizar una web que incluya una imagen y un selector con una lista de 4
+    opciones diferentes, de manera que al seleccionar un elemento de la lista,
+    se actualice automáticamente la imagen del documento.
+    No debe existir un botón.*/
+
+    onload =  function(){
+    selector.addEventListener("change",function nueva() {
+        var nf = selector.value;
+        img.src = selector.value + ".png"
+      });
+    }
+
+  </script>
+  <body>
+    <img id="img" width="150" height="150"src="none.png" alt="none">
+    <br>
+    <select id="selector" name="elige" >
+      <option value="none">choose</option>
+      <option value="one">one</option>
+      <option value="two">two</option>
+      <option value="three">three</option>
+      <option value="four">four</option>
+</select>
+  </body>
+</html>

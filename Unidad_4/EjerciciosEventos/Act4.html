@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 4</title>
+  </head>
+  <script type="text/javascript">
+    /*Utilizando el manejo de eventos del DOM 2, realiza una página que muestre
+     una imagen de manera que esa imagen cambie cuando el ratón pase por encima
+      de la imagen y que vuelva a cambiar cuando salga de ella.*/
+onload = function(){
+      var a = document.querySelector("img");
+      a.addEventListener('mouseenter',function(){
+
+
+        a.parentNode.removeChild(a);
+
+          var imagen = document.createElement("img");
+          imagen.setAttribute("src","https://2.bp.blogspot.com/-_PNwMernWAg/V-gtNWVmPpI/AAAAAAAABSs/3jQTKl0TeiIY2mpTrwE0_ykthsZXFlvIgCLcB/s1600/untitled.png");
+          imagen.setAttribute("width","1500px");
+          document.body.appendChild(imagen);
+
+      },true);
+
+        var b = document.querySelector("img");
+        b.addEventListener('mouseleave',function(){
+          b.parentNode.removeChild(b);
+
+            var iImagen = document.createElement("img");
+            iImagen.setAttribute("src","https://ugc.kn3.net/i/origin/http://2.bp.blogspot.com/-zYNrE2_EFGM/Tcbr_DE6VFI/AAAAAAAAAAQ/x2fNZ9-bDHw/s1600/z.jpeg");
+            iImagen.setAttribute("width","1500px");
+            document.body.appendChild(iImagen);
+
+
+        },true);
+
+}
+  </script>
+  <body>
+    <img  width="1500px"src="https://ugc.kn3.net/i/origin/http://2.bp.blogspot.com/-zYNrE2_EFGM/Tcbr_DE6VFI/AAAAAAAAAAQ/x2fNZ9-bDHw/s1600/z.jpeg" alt="imagen">
+  </body>
+</html>

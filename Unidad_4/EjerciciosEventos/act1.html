@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 1</title>
+  </head>
+  <script type="text/javascript">
+    //Crea una web que contenga elementos p, div, h1, h2 y h3 con texto que cambiarán su contenido cuando se produzca un evento de la siguiente manera:
+    //a. Incluye una manera distinta de asociar la función de manejo de eventos para cada elemento.
+/*--------forma 1-----------*/
+      function modp(e){
+        e.target.style.fontStyle = 'italic';
+      }
+      /*--------forma 2-----------*/
+      onload= function(){
+        div.onwheel = function(e){
+          div.style.color = "pink";
+        }
+      }
+      /*--------forma 3-----------*/
+      function modh1(e){
+        e.target.style.color = 'white';
+      }
+      ondblclick= modh1;
+      /*--------forma 4-----------*/
+      oncontextmenu = function(e){
+        e.preventDefault();
+        e.target.style.border = '1px solid purple';
+      }
+      /*--------forma 5-----------*/
+      function forma2b(h){
+        h.style.backgroundColor= "yellow";
+      }
+    //b. Además, escoge un evento de ratón distinto para cada elemento salvo para el elemento div que debe tener asociado el evento del menú secundario.
+
+    //c. Impide que el menú secundario haga la acción que tiene asociada por defecto
+
+  </script>
+  <body>
+    <p onclick="modp(event)">Esto es un p</p>
+    <div id="div">Esto es un div</div>
+    <h1>Esto es un h1</h1>
+    <h2>Esto es un h2</h2>
+    <h3 onclick="forma2b(this)">Esto es un h3</h3>
+  </body>
+</html>
