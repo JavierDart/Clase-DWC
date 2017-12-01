@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Escoge tu regalo</title>
+  </head>
+  <script type="text/javascript">
+
+document.addEventListener("DOMContentLoaded",function(){
+  var a = document.getElementsByClassName("p1")[0];
+  a.addEventListener("contextmenu", function(e){
+      e.preventDefault();
+      document.body.children[1].innerHTML="pista 1: viviras con todo lujo de detalles";
+  });
+
+  var b = document.getElementsByClassName("p2")[0];
+  b.addEventListener("contextmenu", function(e){
+      e.preventDefault();
+      document.body.children[2].innerHTML="pista 2: caballito azul";
+  });
+
+  var c = document.getElementsByClassName("p3")[0];
+  c.addEventListener("contextmenu", function(e){
+      e.preventDefault();
+      document.body.children[3].innerHTML="pista 3: disfruta con nada";
+  });
+
+
+  var d = document.getElementsByClassName("p1")[0];
+  d.addEventListener("click",premio1);
+  function premio1(){
+    var img1 = document.getElementById("img1");
+    img1.src="http://www.lavanguardia.com/r/GODO/LV/p4/WebSite/2017/01/19/Recortada/img_djuarez_20170119-121737_imagenes_lv_otras_fuentes_mansion_cara-k5SE-U413492810945DRD-992x558@LaVanguardia-Web.jpg";
+    img1.width=200;
+    img1.height=400;
+    var pOcul1= document.querySelectorAll("div")[1];
+    pOcul1.style.display ="none";
+    alert(" te a tocado una mansion en Miami!");
+    }
+    if(img1.src=="http://www.lavanguardia.com/r/GODO/LV/p4/WebSite/2017/01/19/Recortada/img_djuarez_20170119-121737_imagenes_lv_otras_fuentes_mansion_cara-k5SE-U413492810945DRD-992x558@LaVanguardia-Web.jpg") {
+      d.removeEventListener("click",premio1);
+      e.removeEventListener("click",premio2);
+      f.removeEventListener("click",premio3);
+      alert(" te a tocado una mansion en Miami!");
+    }else {
+
+    }
+
+
+    var e = document.getElementsByClassName("p2")[0];
+    e.addEventListener("click",premio2);
+    function premio2(){
+      var img2 = document.getElementById("img2");
+      img2.src="http://www.pngpix.com/wp-content/uploads/2016/06/PNGPIX-COM-Ford-Mustang-Shelby-GT500-Car-PNG-Image-500x277.png";
+      img2.width=200;
+      img2.height=400;
+      var pOcul2= document.querySelectorAll("div")[2];
+      pOcul2.style.display ="none";
+      alert(" te a tocado un Mustang!");
+      }
+      if (img2.src=="http://www.pngpix.com/wp-content/uploads/2016/06/PNGPIX-COM-Ford-Mustang-Shelby-GT500-Car-PNG-Image-500x277.png") {
+        d.removeEventListener("click",premio1);
+        e.removeEventListener("click",premio2);
+        f.removeEventListener("click",premio3);
+        alert(" te a tocado un Mustang!");
+      }else {
+
+      }
+
+      var f = document.getElementsByClassName("p3")[0];
+      f.addEventListener("click",premio3);
+      function premio3(){
+        var img3 = document.getElementById("img3");
+        img3.src="https://pbs.twimg.com/profile_images/874646345176330242/c4uC35A2.jpg";
+        img3.width=200;
+        img3.height=400;
+        var pOcul3= document.querySelectorAll("div")[3];
+        pOcul3.style.display ="none";
+        alert(" No te a tocado nada!, XD");
+        }
+
+
+
+        if (img3.src=="https://pbs.twimg.com/profile_images/874646345176330242/c4uC35A2.jpg") {
+          d.removeEventListener("click",premio1);
+          e.removeEventListener("click",premio2);
+          f.removeEventListener("click",premio3);
+          alert(" No te a tocado nada!, XD");
+        }else {
+
+        }
+  });
+
+
+
+  </script>
+  <style media="screen">
+    .contenedor{
+    text-align: center;
+    }
+    .p1{
+      display:inline-block;
+      border: 1px solid blue;
+      background-color: blue;
+      height: 180px;
+      width: 100px;
+      margin: 10px;
+      font-size: 80px;
+    }
+    .p2{
+      display:inline-block;
+      border: 1px solid red;
+      background-color: red;
+      height: 180px;
+      width: 100px;
+      margin: 10px;
+      font-size: 80px;
+    }
+    .p3{
+      display:inline-block;
+      border: 1px solid purple;
+      background-color: purple;
+      height: 180px;
+      width: 100px;
+      margin: 10px;
+      font-size: 80px;
+    }
+    img{
+      align-items: center;
+      display: inline-block;
+    }
+
+  </style>
+  <body>
+    <h1>Click derecho en una puerta para saber una pista, después click  por tu premio:</h1>
+    <p></p>
+    <p></p>
+    <p></p>
+    <div class="contenedor">
+      <div class="p1" class="tooltip">
+        <p class="a">?</p>
+      </div>
+      <img  id="img1" src=" " alt="">
+      <div class="p2" class="tooltip">
+        <p class="b">?</p>
+      </div>
+      <img  id="img2" src=" " alt="">
+      <div class="p3" class="tooltip">
+        <p class="c">?</p>
+      </div>
+      <img  id="img3" src=" " alt="">
+    </div>
+
+
+
+
+  </body>
+</html>
