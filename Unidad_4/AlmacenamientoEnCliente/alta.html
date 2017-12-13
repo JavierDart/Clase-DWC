@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Alta</title>
+  </head>
+  <script type="text/javascript">
+
+  function getCookie(name) {
+     var nameEQ = name + "=";
+     var ca = document.cookie.split(';');
+     for(var i=0;i < ca.length;i++) {
+       var c = ca[i];
+       while (c.charAt(0)==' ') c = c.substring(1,c.length);
+         if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+       }
+       return null;
+     }
+     var email = localStorage.getItem("emailLocal");
+     var dni = sessionStorage.getItem("dniLocal");
+
+       document.body.innerHTML += "<h2>¡Bienvenido " + getCookie("name") + " "+getCookie("apel")+" !</h2>";
+       document.body.innerHTML += "<hr>";
+       document.body.innerHTML += "<p> Le hemos envíado un correo a " +  email + ". Deberá responder al mismo con una fotocopia del DNI para comprobar que es el " + dni + " y últimar el registro.</p>";
+
+
+
+  </script>
+  <body>
+
+  </body>
+</html>
