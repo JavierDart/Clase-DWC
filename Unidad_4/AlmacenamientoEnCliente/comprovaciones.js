@@ -80,7 +80,7 @@ onload=function(){
            var emailLocal = "Email";
            var valueMail= document.getElementById('email').value;
            window.localStorage.setItem(emailLocal,valueMail);
-           var dniLocal ="Dni local";
+           var dniLocal ="Dni_local";
            var valueDni = miDni;
            window.sessionStorage.setItem(dniLocal,valueDni);
            formulario.action ="alta.html";

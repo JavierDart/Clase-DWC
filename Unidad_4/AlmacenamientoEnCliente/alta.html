@@ -16,14 +16,15 @@
        }
        return null;
      }
-     var email = localStorage.getItem("emailLocal");
-     var dni = sessionStorage.getItem("dniLocal");
 
-       document.body.innerHTML += "<h2>¡Bienvenido " + getCookie("name") + " "+getCookie("apel")+" !</h2>";
+onload=function(){
+  var email = localStorage.getItem("Email");
+  var dni = sessionStorage.getItem("Dni local");
+       document.body.innerHTML += "<h2>¡Bienvenido " + getCookie('nombre Usuario') + " " + getCookie('Apellido')+" !</h2>";
        document.body.innerHTML += "<hr>";
-       document.body.innerHTML += "<p> Le hemos envíado un correo a " +  email + ". Deberá responder al mismo con una fotocopia del DNI para comprobar que es el " + dni + " y últimar el registro.</p>";
+       document.body.innerHTML += "<p> Confirme que su correo es " +  email + " y su dni es " + dni + " . ¡Gracias por registrarse!</p>";
 
-
+}
 
   </script>
   <body>
