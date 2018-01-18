@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 2</title>
+  </head>
+  <script type="text/javascript">
+  onload = function(){
+    if (window.XMLHttpRequest) {
+      var xhr = new XMLHttpRequest();
+    }else if (ActiveXObject("Microsoft.XMLHTTP")) {
+      var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    var random = Math.floor(Math.random() * (5 - 1)) + 1;
+      var url = "n"+ random +".txt";
+      xhr.open("GET",url,true);
+      xhr.onreadystatechange = muestraResultado;
+      xhr.send();
+    function muestraResultado(){
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        titular.innerHTML = xhr.responseText;
+
+      }
+      else if (xhr.readyState == 4 && xhr.status != 200) {
+        alert(xhr.statusText);
+      }
+    }
+    peticion.innerHTML = xhr.readyState;
+    cabeceras.innerHTML = xhr.readyState;
+    codigos.innerHTML = xhr.status;
+
+
+  }
+  </script>
+  <body>
+    <h1 id="titular"></h1>
+    <div id="peticion"></div>
+    <div id="cabeceras"></div>
+    <div id="codigos"></div>
+  </body>
+</html>

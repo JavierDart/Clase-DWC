@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejemplo peticion ajax get texto plano</title>
+    <script type="text/javascript">
+      onload = function(){
+        if (window.XMLHttpRequest) {
+          var xhr = new XMLHttpRequest();
+        }else if (ActiveXObject("Microsoft.XMLHTTP")) {
+          var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        btn.onclick = function(){
+          var url = "datosservidor.txt";
+          //1º establece conexion: con get , necesito url y es asincrona
+          xhr.open("GET",url,true);
+          //esto avisa sobre los envios
+          xhr.onreadystatechange = muestraResultado;
+          //2º envia informacion, sin contenido porque es get
+          xhr.send();
+        }
+        function muestraResultado(){
+          //console.log(xhr.readyState);//envio cliente
+          //console.log(xhr.status);//envio servidor
+          //console.log(xhr.getAllResponseHeaders());//para ver toda la info del servidor
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            resultado.innerHTML = xhr.responseText;
+          }
+          else if (xhr.readyState == 4 && xhr.status != 200) {
+            alert(xhr.statusText);
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Ejemplo get txt</h1>
+    <button id="btn">llamada ajax</button>
+    <p id="resultado"></p>
+  </body>
+</html>

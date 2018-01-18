@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ejemplo Flickr</title>
+<script src="./js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("button").click(function(){
+			$("#imagenes").html("");
+			for (var y = 0; y < 10; y++) {
+				var loader = $(document.createElement('img')).attr("src","loader.gif").width(180).height(250).css("margin","10px");
+				$("#imagenes").append(loader);
+			}
+
+			var valor = $("#selector").val();
+			var url = "https://api.flickr.com/services/feeds/photos_public.gne?tags=";
+			url += valor + "&format=json&jsoncallback=?";
+			$.getJSON(url,function(data,st,xhr){
+
+				if (st == "success") {
+					$("#imagenes").empty();
+					var arrFotos = data.items;
+					$.each(arrFotos,function(i, item){
+						console.log("imagen nº " + i + " scr=" + item.media.m);
+						if (i<10) {
+							var imagen = $(document.createElement('img')).attr("src",item.media.m).width(180).height(250).css("margin","10px");
+							$("#imagenes").append(imagen);
+
+						}else{
+							return false;
+						}
+					});
+				}else {
+					alert("Error : "+ st);
+				}
+
+			});
+		});
+
+	});
+</script>
+</head>
+<body>
+	<h1>Mi flickrs</h1>
+	<div id="imagenes">
+
+	</div>
+	<button>Dibujar</button>
+	<select id="selector">
+		<option value="puppys">Cachorros</option>
+		<option value="dog">Perros</option>
+		<option value="iguana">Iguana</option>
+		<option value="horse">Caballos</option>
+		<option value="fish">Peces</option>
+		<option value="desert">Desierto</option>
+		<option value="cars">Coches</option>
+	</select>
+</body>
+</html>
