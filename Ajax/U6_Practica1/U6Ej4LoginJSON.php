@@ -5,13 +5,13 @@ header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 // obtener los par�metros
 if (isset($_POST["usuario"])){
   $us = $_POST["usuario"];
-	echo $us;
+	//echo $us;
 }else {
   echo "no existen datos del usuario";
 }
 if (isset($_POST["password"])){
 	$pass = $_POST["password"];
-	echo $pass;
+	//echo $pass;
 }else {
   echo "no existen datos del password";
 }

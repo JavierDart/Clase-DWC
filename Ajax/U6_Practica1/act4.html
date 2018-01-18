@@ -12,18 +12,21 @@
       onload = function(){
         document.forms[0].onsubmit = function(e){
             e.preventDefault(); //nunca enviaré el formulario porque me traeré los datos con Ajax en lugar de enviarlos con submit
-            var url = "./U6EjLoginJSON.php";
+            var url = "./U6Ej4LoginJSON.php";
             xhr.open("POST",url,true);
             xhr.onreadystatechange = function(){
               if(xhr.readyState == 4 && xhr.status == 200){
                 var respuesta = xhr.responseText;
                 console.log(respuesta);
-                if (respuesta == "1"){
-                  var salida = "Mostramos Home usuario logado";
+                var d =JSON.parse(xhr.responseText);
+                console.log(d);
+                if (d.res){
+                  document.forms[0].action ="homelogado.html";
+                  localStorage.token = d.token;
+                  document.forms[0].submit();
                 }else{
-                  var salida = "Mostramos las opciones para darse de alta o recuperar password";
+                  console.log("error, ha salido false , contraseña o nombre error");
                 }
-                document.getElementById("resLogin").innerHTML = salida;
               } else if(xhr.readyState == 4){
                 alert("Se ha producido un error al obtener los datos"
                 + "\n\nreadyState:" + xhr.readyState
@@ -31,28 +34,26 @@
                 + "\nheaders: " + xhr.getAllResponseHeaders());
               }
             }
-            //Cogemos el valor que ha puesto el usuario:
-            var us = document.getElementById("usuario").value;
-            var pass = document.getElementById("pass").value;
-            //Creamos el objeto usuario
-            var usuario = new Object();
-            usuario.nombre = us;
-            usuario.password = pass;
-            //Convertimos el objeto JS en un objeto JSON
-            var objJSON = JSON.stringify(usuario);
-            console.log("Enviamos esto: " + objJSON);
+            //devolvemos una strLogin = "usuario=valor_us&pass=valor_pass"
+            function obtenDatosLogin(){
+              var us = document.getElementById("usuario").value;
+              var pass = document.getElementById("pass").value;
+              var strLogin = "usuario=" + encodeURIComponent(us) + "&password=" + encodeURIComponent(pass);
+              console.log(strLogin);
+              return strLogin;
+            }
+            // Por defecto, POST envía los datos con el formato url por lo que no tengo que especificarlo así:
+            xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 
-            //Indicamos que enviamos un JSON
-            xhr.setRequestHeader("Content-Type","application/json");
-            xhr.send(objJSON);
+            var datosLogin = obtenDatosLogin();
+            xhr.send(datosLogin);
           }
       }
     </script>
   </head>
   <body>
     <h1>Ejemplo envío datos Login y obtengo respuesta mediante Ajax</h1>
-    <h2>Formato envío: JSON</h2>
-    <h2>Formato recibido: Texto</h2>
+    <h2>Formato envío: url</h2>
     <form action="#" method="post">
       <div>Usuario: <input type="text" id="usuario" name="usuario" placeholder="Introduce tu usuario..." maxlength="40"></input></div>
       <div>Contraseña: <input type="password" id="pass" name="pass"></input></div>
