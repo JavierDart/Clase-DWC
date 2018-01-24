@@ -52,8 +52,10 @@
               $.each(arrayInfo, function(i, item){
                 if (valor =="people"||valor =="planets"||valor == "starship") {
                     var nombre = item.name;
+                    console.log(item.name);
                 }else if (valor =="films") {
                     var nombre = item.title;
+                    console.log(item.title);
                 }
                 if($("#planetas").css("display", "block")){
                     var valor2 = $("#planetas").val();
