@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Star Wars</title>
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#personajes").click(function(){
+          $("#informacion").html("");
+
+          var valor = $("#wiki").val();
+    			var url = "https://www.swapi.co/api/";
+    			url += valor + "&format=json&jsoncallback=?";
+          $.getJSON(url,function(data,st,xhr){
+
+    				if (st == "success") {
+    					$("#informacion").empty();
+    					var arrInfo = data.items;
+    					$.each(arrInfo,function(i, item){
+    						console.log("info nº " + i + " scr=" + item.media.m);
+    						if (i<10) {
+    							var imagen = $('#informacion').attr("src",item.media.m).width(180).height(250).css("margin","10px");
+    							$("#imagenes").append(imagen);
+
+    						}else{
+    							return false;
+    						}
+    					});
+    				}else {
+    					alert("Error : "+ st);
+    				}
+
+    			});
+        });
+          if (valor=="people") {
+            $('#opciones').val()="";
+          }
+          if (valor=="films") {
+            $('#opciones').val()="";
+          }
+          if (valor=="starships") {
+            $('#opciones').val()="";
+          }
+          if (valor=="planets") {
+            $('#opciones').val()="";
+          }
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Wiki Star Wars</h1>
+      <select id="wiki">
+        <option value="people" selected="selected">Personajes</option>
+        <option value="films">Peliculas</option>
+        <option value="starships">Naves</option>
+        <option value="planets">Planetas</option>
+      </select>
+      <select id="opciones">
+        <option value="">Anakin SkyWalker</option>
+        <option value="">Amidala</option>
+        <option value="">Leia SkyWalker</option>
+        <option value="">Luke SkyWalker</option>
+      </select>
+      <div id="informacion"></div>
+  </body>
+</html>

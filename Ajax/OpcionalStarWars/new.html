@@ -1,0 +1,150 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio Star Wars</title>
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        if (window.XMLHttpRequest) {
+          var xhr = new XMLHttpRequest();
+        }else if (ActiveXObject("Microsoft.XMLHTTP")) {
+          var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        $("#selector").change(function(e){
+          /*CAMBIAR LAS OPCIONES QUE VES*/
+          var valor = $("#selector").val();
+          if (valor =="people") {
+            $(".opciones").css("display", "none");
+            $("#personas").css("display", "block");
+          }else if (valor =="films") {
+            $(".opciones").css("display", "none");
+            $("#peliculas").css("display", "block");
+          }else if(valor == "starships"){
+            $(".opciones").css("display", "none");
+            $("#naves").css("display", "block");
+          }
+          else if(valor =="planets"){
+            $(".opciones").css("display", "none");
+            $("#planetas").css("display", "block");
+          }else{
+            $(".opciones").css("display", "none");
+          }
+  				var url = "https://swapi.co/api/";
+          url += valor;
+          console.log(url);
+
+          $.getJSON(url, function(data,st,xhr){
+            console.log(data.results);
+            $("#info").empty();
+            var gifs = document.createElement("img");
+  					gifs.setAttribute("src","loader.gif");
+  					gifs.style.width = "150px";
+  					gifs.style.height = "80px";
+  					info.appendChild(gifs);
+            console.log(st);
+            if(st =="success"){
+              var arrayInfo = data.results;
+              console.log(data);
+              console.log("data items:"+arrayInfo);
+              var wiki = document.createElement("ul");
+              var texto = "";
+              $.each(arrayInfo, function(i, item){
+                if (valor =="people"||valor =="planets"||valor == "starship") {
+                    var nombre = item.name;
+                }else if (valor =="films") {
+                    var nombre = item.title;
+                }
+                if($("#planetas").css("display", "block")){
+                    var valor2 = $("#planetas").val();
+                }else if($("#peliculas").css("display", "block")){
+                    var valor2 = $("#peliculas").val();
+                }else if($("#personas").css("display", "block")){
+                    var valor2 = $("#personas").val();
+                }else if($("#naves").css("display", "block")){
+                    var valor2 = $("#naves").val();
+                }
+                if(valor == "personas"){
+                  var wikia = document.createElement("li");
+                  texto +="name:"+ nombre + "<br>" + item.hair_color + "<br>" +item.height +"<br>" +item.mass;
+                  console.log(texto);
+                   wiki.appendChild(wikia);
+                   $("li").text(texto);
+                   info.appendChild(wikia);
+               }else{
+                  var wikia = document.createElement("li");
+                  texto += item;
+                  wiki.appendChild(wikia);
+                  $("li").text(texto);
+                  info.appendChild(wiki);
+               }
+              });
+            }
+          });
+        })
+      });
+    </script>
+    <style media="screen">
+    #naves, #peliculas, #planetas,#personas{
+      display:none;
+    }
+    select{
+      float:left;
+    }
+    .opciones{
+      margin-left: 35px;
+      margin-right: 35px;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Star wars wiki</h1>
+    <select id="selector">
+      <option value="0">Elige una opción</option>
+      <option value="people">Personajes</option>
+      <option value="starships">Naves</option>
+      <option value="films">Peliculas</option>
+      <option value="planets">Planetas</option>
+    </select>
+    <select id="personas" class="opciones">
+      <option value="Anakin Skywalker">Anakin Skywalker</option>
+      <option value="0">Luke Skywalker</option>
+      <option value="1">C-3PO</option>
+      <option value="3">Darth Vader</option>
+      <option value="2">R2-D2</option>
+    </select>
+    <select id="naves" class="opciones">
+      <option value="Death Star">Estrella de la Muerte</option>
+      <option value="Millennium Falcon">halcón Milenario</option>
+      <option value="Y-wing">Y-wing</option>
+      <option value="X-wing">X-wing</option>
+      <option value="TIE Advanced x1">Caza TIE</option>
+    </select>
+
+    <select id="peliculas" class="opciones">
+      <option value="A New Hope">IV</option>
+      <option value="The Empire Strikes Back">V</option>
+      <option value="Return of the Jedi">VI</option>
+      <option value="The Phantom Menace">I</option>
+      <option value="Attack of the Clones">II</option>
+      <option value="Revenge of the Sith">III</option>
+      <option value="The Force Awakens">VII</option>
+      <option value="A Star Wars Story">Rogue One</option>
+      <option value="The Last Jedi">VIII</option>
+    </select>
+
+    <select id="planetas" class="opciones">
+      <option value="Alderaan">Alderaan</option>
+      <option value="Yavin IV">Yavin IV</option>
+      <option value="Hoth">Hoth</option>
+      <option value="Dagobah">Dagobah</option>
+      <option value="Bespin">Bespin</option>
+      <option value="Endor">Endor</option>
+      <option value="Naboo">Naboo</option>
+      <option value="Coruscant">Coruscant</option>
+    </select>
+    <div id="info">
+
+    </div>
+  </body>
+</html>
