@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio Star Wars</title>
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#selector").change(function(e){
+          var valor = $("#selector").val();
+          if(valor == "starships"){
+            $(".fum").css("display", "none");
+            $("#naves").css("display", "block");
+          }else if (valor =="people") {
+            $(".fum").css("display", "none");
+            $("#pers").css("display", "block");
+          }else if (valor =="films") {
+            $(".fum").css("display", "none");
+            $("#pelis").css("display", "block");
+          }else if(valor =="planets"){
+            $(".fum").css("display", "none");
+            $("#planetas").css("display", "block");
+          }else{
+            $(".fum").css("display", "none");
+          }
+  				var url = "https://swapi.co/api/";
+          url += valor;
+          console.log(url);
+          $.getJSON(url, function(data,st,xhr){
+            console.log(data);
+            $("#car").empty();
+            var g = document.createElement("img");
+  					g.setAttribute("src","loader.gif");
+  					g.style.width = "300px";
+  					g.style.height = "100px";
+  					car.appendChild(g);
+            console.log(st);
+            if(st =="success"){
+              var arrayStar = data.results;
+              console.log(arrayStar);
+              console.log(data.results);
+              console.log(data.results[0]);
+
+
+              var lu = document.createElement("ul");
+              var texto = "";
+
+              $.each(arrayStar, function(i, item){
+                if (valor =="people"||valor =="planets"||valor == "starship") {
+                    var nombre = data.results[i].name;
+                    console.log("as:"+nombre);
+                }if (valor=="people") {
+                  var genero = data.results[i].gender;
+                  var altura =data.results[i].height;
+                  var peso = data.results[i].mass;
+                }
+                if (valor=="starships") {
+                  var modelo = data.results[i].model;
+                  var precio =data.results[i].cost_in_credits;
+
+                }
+                else if (valor =="films") {
+                    var titulo = data.results[i].title;
+                }
+
+                if($("#planetas").css("display", "block")){
+                    var valor2 = $("#planetas").val();
+                }else if($("#pelis").css("display", "block")){
+                    var valor2 = $("#pelis").val();
+                }else if($("#pers").css("display", "block")){
+                    var valor2 = $("#pers").val();
+                }else if($("#naves").css("display", "block")){
+                    var valor2 = $("#naves").val();
+                }
+                if(valor == "people"){
+                  var li = document.createElement("li");
+                  texto +=" name: "+ nombre + ",genero: " +genero+ ",altura: " +altura+",peso: " +peso;
+                    console.log(texto);
+                   lu.appendChild(li);
+                   $("li").text(texto);
+                   car.appendChild(lu);
+               }  else if(valor == "starships"){
+                   var li = document.createElement("li");
+                   texto +=" name: "+ nombre + ",modelo: " +modelo+ ",precio: " +precio;
+                     console.log(texto);
+                    lu.appendChild(li);
+                    $("li").text(texto);
+                    car.appendChild(lu);
+                }
+               else{
+                  var li = document.createElement("li");
+                  texto += "Titulo: "+titulo;
+                  lu.appendChild(li);
+                  $("li").text(texto);
+                  car.appendChild(lu);
+               }
+               // for (var i = 0; i < 4; i++) {
+               //   var li = document.createElement("li");
+               // }
+               // var arrLi = document.getElementsByTagName("li");
+               // $.each(arrLi, function(i, item){
+               //     arrLi[0].innerHTML("NOMBRE:"+ nombre);
+               //     var genero = data.results[i].gender;
+               //     var altura =data.results[i].height;
+               //     var peso = data.results[i].mass;
+               // });
+              });
+            }
+          });
+        })
+      });
+    </script>
+    <style media="screen">
+    #naves, #pelis, #planetas,#pers{
+      display:none;
+    }
+    select{
+      float:left;
+    }
+    .fum{
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Star wars wiki</h1>
+    <select id="selector" >
+      <option value="0">Elige una opción</option>
+      <option value="people">Personajes</option>
+      <option value="starships">Naves</option>
+      <option value="films">Peliculas</option>
+      <option value="planets">Planetas</option>
+    </select>
+    <select id="pers" class="fum">
+      <option value="Anakin Skywalker">Anakin Skywalker</option>
+      <option value="Luke Skywalker">Luke Skywalker</option>
+      <option value="C-3PO">C-3PO</option>
+      <option value="Owen Lars">Owen Lars</option>
+      <option value="R2-D2">R2-D2</option>
+    </select>
+    <select id="naves" class="fum">
+      <option value="Death Star">Estrella de la Muerte</option>
+      <option value="Millennium Falcon">halcón Milenario</option>
+      <option value="Y-wing">Y-wing</option>
+      <option value="X-wing">X-wing</option>
+      <option value="TIE Advanced x1">Caza TIE</option>
+    </select>
+    <select id="pelis" class="fum">
+      <option value="A New Hope">Una nueva esperanza</option>
+      <option value="Attack of the Clones">El ataque de los clones</option>
+      <option value="The Phantom Menace">La amenaza fantasma</option>
+      <option value="Revenge of the Sith">La venganza de los Sith</option>
+      <option value="Return of the Jedi">El retorno del jedi</option>
+      <option value="The Empire Strikes Back">El imperio contraataca</option>
+      <option value="The Force Awakens">El despertar de la fuerza</option>
+    </select>
+    <select id="planetas" class="fum">
+      <option value="Alderaan">Alderaan</option>
+      <option value="Yavin IV">Yavin IV</option>
+      <option value="Hoth">Hoth</option>
+      <option value="Dagobah">Dagobah</option>
+      <option value="Bespin">Bespin</option>
+      <option value="Endor">Endor</option>
+      <option value="Naboo">Naboo</option>
+      <option value="Coruscant">Coruscant</option>
+    </select>
+    <div id="car">
+
+    </div>
+  </body>
+</html>
