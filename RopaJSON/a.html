@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>js</title>
+<style type="text/css">
+	div{
+		width: 20%;
+		float:left;
+	}
+	button{
+		visibility: hidden;
+	}
+	img{
+		width: 200px;
+	}
+</style>
+
+</head>
+<script type="text/javascript">
+  var xhr = new XMLHttpRequest();
+  onload = function(){
+  var sel1, sel2;
+
+  selector1.onchange = function(){
+    sel1 = selector1.value;
+    sel2 = selector2.value;
+    console.log(sel1+" , "+sel2);
+
+    if (sel1 != 0 && sel2 != 0) {
+      xhr.onreadystatechange = funcionResultado;
+
+      var url= "escogeArticuloJSON.php?";
+      url += "articulo=" + sel1;
+      url += "&modelo=" + sel2;
+      console.log(url);
+      xhr.open("GET",url, true);
+      xhr.send();
+    }
+    else{
+      foto.src= "";
+      foto.alt= "";
+      precio.innerHTML= "";
+
+      document.getElementsByTagName("button")[0].style.visibility = "hidden";
+    }
+
+  };
+  selector2.onchange = function(){
+    sel1 = document.getElementById('selector1').value;
+    sel2 = selector2.value;
+    console.log(sel1+" , "+sel2);
+
+    if (sel1 != 0 && sel2 != 0) {
+      xhr.onreadystatechange = funcionResultado;
+
+      var url= "escogeArticuloJSON.php?";
+      url += "articulo=" + sel1;
+      url += "&modelo=" + sel2;
+      console.log(url);
+      xhr.open("GET",url, true);
+      xhr.send();
+
+    }
+    else{
+      foto.src= "";
+      foto.alt= "";
+      precio.innerHTML= "";
+
+      document.getElementsByTagName("button")[0].style.visibility  = "hidden";
+    }
+
+  };
+  function funcionResultado(){
+    if (xhr.readyState == 4 && xhr.status == 200){
+      //convertimos el JSON en JS:
+      var objJS = JSON.parse(xhr.responseText);
+
+      foto.src= objJS.foto;
+      foto.alt= objJS.modelo;
+      precio.innerHTML= objJS.pvp;
+
+      document.getElementsByTagName("button")[0].style.visibility = "visible";
+    }else if(xhr.readyState == 4){
+      alert(xhr.statusText);
+    }
+  }
+  }
+</script>
+<body>
+<h1>Moda Hombre</h1>
+<div>
+<select id="selector1">
+	<option value=0>Escoge una prenda</option>
+	<option value="pantalon">Pantalón</option>
+	<option value="camisa">Camisa</option>
+	<option value="camiseta">Camiseta</option>
+</select>
+</div>
+<div>
+<select id="selector2">
+	<option value=0>Escoge un modelo</option>
+	<option value="liso">Liso</option>
+	<option value="estampado">Estampado</option>
+</select>
+</div>
+<div id="resultados">
+	<img src="" alt="" id="foto">
+	<p id="precio"></p>
+	<button>Comprar</button>
+</div>
+
+</body>
+</html>
